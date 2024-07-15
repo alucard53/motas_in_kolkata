@@ -35,7 +35,7 @@ export default function Login() {
         localStorage.setItem("name", data.name);
         window.location.replace("/");
       } else {
-        alert(`data.error`);
+        alert(`parenaaa parenaa type korteee`);
       }
     } catch (e) {
       alert(`rip gurzu backend moment ${e}`);
