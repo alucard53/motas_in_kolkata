@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 export default function Motas() {
   const [motas, setMotas] = useState<Mota[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     try {
@@ -17,14 +18,23 @@ export default function Motas() {
           },
         });
         const data = await res.json();
-        console.log(data);
         setMotas(data.motas);
+        setLoading(false);
       };
       fetchMotas();
     } catch (e) {
+      setLoading(false);
       alert(`rip gurzu backend moment ${e}`);
     }
   }, []);
+
+  if (loading) {
+    return (
+      <h1 className="text-purple-800 text-4xl font-bold mt-12 text-center">
+        Rukja bhai load hone de...
+      </h1>
+    );
+  }
 
   const myMotas = motas.map((mota) => {
     return {

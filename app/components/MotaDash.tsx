@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Mota } from "../lib/types";
+import DashRow from "./DashRow";
 
 export default function MotaDash({ motas }: { motas: Mota[] }) {
   let motaCount = 0;
@@ -31,24 +32,6 @@ export default function MotaDash({ motas }: { motas: Mota[] }) {
     }
   });
 
-  async function changeStatus(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    e.stopPropagation();
-    try {
-      const res = await fetch(`/api/changeStatus/${loggedInMota}`, {
-        method: "PUT",
-      });
-      if (res.status === 200) {
-        window.location.reload();
-      } else {
-        alert(`rip gurzu backend moment ${e}`);
-      }
-    } catch (e) {
-      alert(`rip gurzu backend moment ${e}`);
-    } finally {
-      setDisplay(false);
-    }
-  }
-
   return (
     <>
       <h1 className="text-purple-800 text-4xl font-bold block mt-12 mb-20 text-center">
@@ -76,35 +59,14 @@ export default function MotaDash({ motas }: { motas: Mota[] }) {
           <span className="p-2 text-lg font-semibold w-full">Status</span>
         </div>
         {motas.map(({ name, status, email }) => (
-          <div className="grid grid-cols-2 gap-x-20 md:gap-x-32" key={email}>
-            <span>{name}</span>
-            <span
-              className={loggedInMota === email ? "underline" : ""}
-              role={loggedInMota === email ? "button" : ""}
-              onClick={
-                loggedInMota === email
-                  ? (e) => {
-                      e.stopPropagation();
-                      setDisplay(!display);
-                    }
-                  : undefined
-              }
-            >
-              {status}
-              {display && loggedInMota === email && (
-                <div
-                  className="absolute bg-white p-2 rounded-xl text-orange-500 font-semibold"
-                  onClick={(e) => changeStatus(e)}
-                >
-                  <span>
-                    {status === "mota is gone"
-                      ? "mota is back"
-                      : "mota is gone"}
-                  </span>
-                </div>
-              )}
-            </span>
-          </div>
+          <DashRow
+            name={name}
+            status={status}
+            email={email}
+            loggedInMota={loggedInMota}
+            setDisplay={setDisplay}
+            display={display}
+          />
         ))}
       </div>
     </>
