@@ -18,3 +18,5 @@ export default async function Motas() {
 
   return <MotaDash motas={myMotas} />;
 }
+
+export const dynamic = "force-dynamic";

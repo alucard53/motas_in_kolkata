@@ -33,7 +33,7 @@ export default function Login() {
       if (res.status === 200) {
         localStorage.setItem("email", email);
         localStorage.setItem("name", data.name);
-        window.location.replace("/motas");
+        window.location.replace("/");
       } else {
         alert(`data.error`);
       }
