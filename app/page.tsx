@@ -10,7 +10,12 @@ export default function Motas() {
   useEffect(() => {
     try {
       const fetchMotas = async () => {
-        const res = await fetch("/api/motas", { cache: "no-store" });
+        const res = await fetch("/api/motas", {
+          cache: "no-store",
+          headers: {
+            "Cache-Control": "no-store",
+          },
+        });
         const data = await res.json();
         console.log(data);
         setMotas(data.motas);

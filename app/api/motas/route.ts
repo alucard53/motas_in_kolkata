@@ -1,6 +1,9 @@
 import clientPromise from "@/app/lib/mongodb";
 import { NextResponse } from "next/server";
 
+export const fetchCache = "force-no-store";
+export const revalidate = 0;
+
 export async function GET() {
   try {
     const client = await clientPromise;
@@ -11,5 +14,3 @@ export async function GET() {
     return NextResponse.json({ motas: [] }, { status: 500 });
   }
 }
-
-export const fetchCache = "force-no-store";
