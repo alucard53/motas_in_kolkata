@@ -52,7 +52,7 @@ export default function MotaDash({ motas }: { motas: Mota[] }) {
   return (
     <>
       <h1 className="text-purple-800 text-4xl font-bold block mt-12 mb-20 text-center">
-        Motas in Koklata: {motaCount}
+        Motas in Kolkata: {motaCount}
       </h1>
 
       {!loggedInMota && (
