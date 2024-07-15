@@ -66,6 +66,7 @@ export default function MotaDash({ motas }: { motas: Mota[] }) {
             loggedInMota={loggedInMota}
             setDisplay={setDisplay}
             display={display}
+            key={email}
           />
         ))}
       </div>
