@@ -1,17 +1,19 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Input from "@/app/components/Input";
 import Link from "next/link";
 
 export default function Login() {
-  if (localStorage.getItem("email")) {
-    window.location.replace("/");
-  }
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [disabled, setDisabled] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("email")) {
+      window.location.replace("/");
+    }
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
