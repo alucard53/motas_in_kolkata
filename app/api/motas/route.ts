@@ -11,3 +11,5 @@ export async function GET() {
     return NextResponse.json({ motas: [] }, { status: 500 });
   }
 }
+
+export const fetchCache = "force-no-store";
