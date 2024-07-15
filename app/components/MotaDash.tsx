@@ -2,14 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Mota } from "../lib/types";
 
-type Motas = {
-  name: string;
-  status: string;
-  email: string;
-};
-
-export default function MotaDash({ motas }: { motas: Motas[] }) {
+export default function MotaDash({ motas }: { motas: Mota[] }) {
   let motaCount = 0;
   const [display, setDisplay] = useState(false);
   const [loggedInMota, setLoggedInMota] = useState("");

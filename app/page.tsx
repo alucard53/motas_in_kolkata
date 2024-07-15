@@ -1,14 +1,27 @@
-"use server";
+"use client";
 
-import clientPromise from "@/app/lib/mongodb";
 import MotaDash from "@/app/components/MotaDash";
+import { Mota } from "./lib/types";
+import { useEffect, useState } from "react";
 
-export default async function Motas() {
-  const client = await clientPromise;
-  const motas = client.db("test").collection("motas");
-  const allMotas = await motas.find().toArray();
+export default function Motas() {
+  const [motas, setMotas] = useState<Mota[]>([]);
 
-  const myMotas = allMotas.map((mota) => {
+  useEffect(() => {
+    try {
+      const fetchMotas = async () => {
+        const res = await fetch("/api/motas", { cache: "no-store" });
+        const data = await res.json();
+        console.log(data);
+        setMotas(data.motas);
+      };
+      fetchMotas();
+    } catch (e) {
+      alert(`rip gurzu backend moment ${e}`);
+    }
+  }, []);
+
+  const myMotas = motas.map((mota) => {
     return {
       name: mota.name,
       status: mota.status,
@@ -18,5 +31,3 @@ export default async function Motas() {
 
   return <MotaDash motas={myMotas} />;
 }
-
-export const dynamic = "force-dynamic";
