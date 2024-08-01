@@ -1,5 +1,6 @@
 import clientPromise from "@/app/lib/mongodb";
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 
 type Params = {
   email: string;
@@ -15,11 +16,11 @@ export async function PUT(request: Request, context: { params: Params }) {
     return NextResponse.json({}, { status: 404 });
   }
 
-  let newStatus = "mota is gone";
-  if (mota.status === "mota is gone") {
-    newStatus = "mota is back";
-  }
-  motas.updateOne(
+  let newStatus = mota.status === "mota is gone"
+		? "mota is back"
+		: "mota is gone";
+
+  await motas.updateOne(
     { email: mota.email },
     {
       $set: {
@@ -27,6 +28,8 @@ export async function PUT(request: Request, context: { params: Params }) {
       },
     }
   );
+
+	revalidatePath("/");
 
   return NextResponse.json({});
 }

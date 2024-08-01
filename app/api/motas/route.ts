@@ -1,8 +1,6 @@
 import clientPromise from "@/app/lib/mongodb";
 import { NextResponse } from "next/server";
 
-export const revalidate = 0;
-
 export async function GET() {
   try {
     const client = await clientPromise;
