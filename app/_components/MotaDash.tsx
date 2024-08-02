@@ -1,10 +1,8 @@
-"use server";
-
 import { Mota } from "../lib/types";
 import AuthButtons from "./AuthButtons";
 import MotaList from "./MotaList";
 
-export default async function MotaDash({ motas }: { motas: Mota[] }) {
+export default function MotaDash({ motas }: { motas: Mota[] }) {
   let motaCount = 0;
 
   motas.forEach(({ status }) => {
@@ -15,7 +13,7 @@ export default async function MotaDash({ motas }: { motas: Mota[] }) {
 
   return (
     <>
-      <h1 className="text-purple-800 text-4xl font-bold block mt-12 mb-20 text-center">
+      <h1 className="text-purple-800 text-4xl font-bold block mt-12 mb-20 text-center mx-4">
         Motas in Kolkata: {motaCount}
       </h1>
 

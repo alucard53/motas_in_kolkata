@@ -1,4 +1,4 @@
-import type { GetServerSideProps, Metadata } from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
+  searchParams: Record<string, string>;
   children: React.ReactNode;
 }>) {
   return (

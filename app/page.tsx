@@ -1,9 +1,12 @@
-import MotaDash from "@/app/components/MotaDash";
-import { Mota } from "./lib/types";
+import MotaDash from "@/app/_components/MotaDash";
 import clientPromise from "@/app/lib/mongodb";
-import { WithId } from "mongodb";
+import ChangeStatus from "./_components/ChangeStatus";
 
-export default async function Motas() {
+export default async function Motas({
+  searchParams,
+}: {
+  searchParams: Record<string, string>;
+}) {
   let motas: any[] = [];
 
   try {
@@ -19,5 +22,10 @@ export default async function Motas() {
     status: mota.status,
   }));
 
-  return <MotaDash motas={myMotas} />;
+  return (
+    <>
+      {searchParams && searchParams.show && <ChangeStatus motas={myMotas} />}
+      <MotaDash motas={myMotas} />;
+    </>
+  );
 }

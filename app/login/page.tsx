@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import Input from "@/app/components/Input";
+import Input from "@/app/_components/Input";
 import Link from "next/link";
 
 export default function Login() {
@@ -46,7 +46,7 @@ export default function Login() {
 
   return (
     <form
-      className="flex flex-col  items-center px-9 pt-12 bg-purple-700 m-auto text-white rounded-xl"
+      className="flex flex-col items-center mx-4 px-4 w-80 lg:w-96 pt-12 bg-purple-700 m-auto text-white rounded-xl"
       onSubmit={handleSubmit}
     >
       <h1 className="text-3xl mb-12">Abbe Login</h1>
@@ -68,7 +68,7 @@ export default function Login() {
 
       <button
         type="submit"
-        className="bg-white text-purple-900 p-2 mt-8 mb-2 font-bold rounded-2xl hover:bg-gray-200 transition-colors"
+        className="bg-white text-purple-900 px-3 py-2 mt-4 mb-2 font-bold rounded-2xl hover:bg-gray-200 transition-colors disabled:opacity-50"
         disabled={disabled}
       >
         Yameteeee

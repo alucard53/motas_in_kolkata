@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { FormEvent, useEffect, useState } from "react";
-import Input from "@/app/components/Input";
+import Input from "@/app/_components/Input";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -44,10 +44,10 @@ export default function Register() {
 
   return (
     <form
-      className="flex flex-col items-center px-7 pt-12 bg-purple-700 m-auto text-white rounded-xl"
+      className="flex flex-col items-center px-7 pt-12 bg-purple-700 mx-4 my-auto text-white rounded-xl"
       onSubmit={handleSubmit}
     >
-      <h1 className="text-3xl mb-12">Ek Molester Ek Register</h1>
+      <h1 className="text-3xl mb-12 text-center">Ek Molester Ek Register</h1>
 
       <Input id="name" name="nem" type="text" value={name} setValue={setName} />
       <Input
@@ -67,7 +67,7 @@ export default function Register() {
 
       <button
         type="submit"
-        className="bg-white text-purple-900 p-2 my-2 font-bold rounded-2xl hover:bg-gray-200 transition-colors"
+        className="bg-white text-purple-900 px-4 py-2 my-2 font-bold rounded-2xl hover:bg-gray-200 transition-colors disabled:opacity-50"
         disabled={disabled}
       >
         Tepo Amaye uWu

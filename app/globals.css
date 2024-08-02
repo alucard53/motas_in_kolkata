@@ -19,10 +19,37 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.enter {
+  animation: khara-h-aj-bhi-mera 500ms forwards;
+}
+
+.close {
+  animation: hello-hello-hello-goodbye 500ms;
+}
+
+@keyframes khara-h-aj-bhi-mera {
+  from {
+    margin-top: 100rem;
+  }
+  to {
+    margin-top: 0rem;
+  }
+}
+
+@keyframes hello-hello-hello-goodbye {
+  from {
+    margin-top: 0rem;
+  }
+  to {
+    margin-top: 100rem;
   }
 }
