@@ -16,7 +16,7 @@ export default function DashRow({
 
   return (
     <div
-      className="grid grid-cols-2 gap-x-2 sm:gap-x-32 items-center"
+      className="grid grid-cols-2 gap-x-4 sm:gap-x-32 items-center"
       key={email}
     >
       <span>{name}</span>

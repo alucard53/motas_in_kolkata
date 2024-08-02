@@ -46,7 +46,7 @@ export default function Login() {
 
   return (
     <form
-      className="flex flex-col items-center mx-4 px-4 w-80 lg:w-96 pt-12 bg-purple-700 m-auto text-white rounded-xl"
+      className="flex flex-col items-center mx-4 px-4 w-11/12 sm:w-96 pt-12 bg-purple-700 m-auto text-white rounded-xl"
       onSubmit={handleSubmit}
     >
       <h1 className="text-3xl mb-12">Abbe Login</h1>

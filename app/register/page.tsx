@@ -44,7 +44,7 @@ export default function Register() {
 
   return (
     <form
-      className="flex flex-col items-center px-7 pt-12 bg-purple-700 mx-4 my-auto text-white rounded-xl"
+      className="flex flex-col w-11/12 sm:w-96 items-center px-7 pt-12 bg-purple-700 mx-4 my-auto text-white rounded-xl"
       onSubmit={handleSubmit}
     >
       <h1 className="text-3xl mb-12 text-center">Ek Molester Ek Register</h1>
