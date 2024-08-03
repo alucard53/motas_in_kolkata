@@ -1,9 +1,9 @@
-import clientPromise from "@/app/lib/mongodb";
+import clientPromise from "@/app/_lib/mongodb";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const client = await clientPromise;
+    const client = await clientPromise.connect();
     const motas = client.db("test").collection("motas");
     const body = await request.json();
 

@@ -1,4 +1,4 @@
-import { Mota } from "../lib/types";
+import { Mota } from "../_lib/types";
 import AuthButtons from "./AuthButtons";
 import MotaList from "./MotaList";
 

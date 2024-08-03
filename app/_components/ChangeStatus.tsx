@@ -2,8 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Mota } from "../lib/types";
-import useLoggedInMota from "../lib/useLoggedInMota";
+import { Mota } from "../_lib/types";
+import useLoggedInMota from "../_lib/useLoggedInMota";
 
 export default function ChangeStatus({ motas }: { motas: Mota[] }) {
   const router = useRouter();
@@ -45,7 +45,7 @@ export default function ChangeStatus({ motas }: { motas: Mota[] }) {
       onClick={close}
     >
       <div
-        className={`${animation}  bg-white h-2/6 w-5/6 sm:w-80 sm:h-96 text-center flex flex-col gap-4 justify-center items-center text-orange-400 text-2xl font-semibold z-50 rounded-xl`}
+        className={`${animation}  bg-white h-2/6 w-5/6 sm:w-80 sm:h-96 text-center flex flex-col gap-4 justify-center items-center text-orange-400 text-2xl font-semibold z-50 rounded-xl overflow-hidden`}
         onClick={(e) => {
           e.stopPropagation();
           console.log("inner div clicked");

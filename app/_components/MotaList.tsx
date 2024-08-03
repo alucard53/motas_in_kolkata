@@ -1,7 +1,7 @@
 "use client";
 
-import { Mota } from "../lib/types";
-import useLoggedInMota from "../lib/useLoggedInMota";
+import { Mota } from "../_lib/types";
+import useLoggedInMota from "../_lib/useLoggedInMota";
 import DashRow from "./DashRow";
 
 export default function MotaList({ motas }: { motas: Mota[] }) {

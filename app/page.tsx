@@ -1,5 +1,5 @@
 import MotaDash from "@/app/_components/MotaDash";
-import clientPromise from "@/app/lib/mongodb";
+import clientPromise from "@/app/_lib/mongodb";
 import ChangeStatus from "./_components/ChangeStatus";
 
 export default async function Motas({
@@ -10,7 +10,7 @@ export default async function Motas({
   let motas: any[] = [];
 
   try {
-    const client = await clientPromise;
+    const client = await clientPromise.connect();
     motas = await client.db("test").collection("motas").find().toArray();
   } catch (e) {
     console.log(e);

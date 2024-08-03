@@ -1,10 +1,10 @@
-import clientPromise from "@/app/lib/mongodb";
+import clientPromise from "@/app/_lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 
 export async function PUT(request: NextRequest) {
   try {
-    const client = await clientPromise;
+    const client = await clientPromise.connect();
     const motas = client.db("test").collection("motas");
 
     const email = request.nextUrl.searchParams.get("email");

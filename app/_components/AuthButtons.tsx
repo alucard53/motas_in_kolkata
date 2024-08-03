@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import useLoggedInMota from "../lib/useLoggedInMota";
+import useLoggedInMota from "../_lib/useLoggedInMota";
 
 export default function AuthButtons() {
   const loggedInMota = useLoggedInMota();
