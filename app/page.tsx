@@ -25,7 +25,7 @@ export default async function Motas({
   return (
     <>
       {searchParams && searchParams.show && <ChangeStatus motas={myMotas} />}
-      <MotaDash motas={myMotas} />;
+      <MotaDash motas={myMotas} />
     </>
   );
 }
